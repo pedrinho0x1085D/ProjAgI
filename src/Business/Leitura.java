@@ -15,24 +15,21 @@ import java.util.GregorianCalendar;
  * @author PedroJosé
  */
 public class Leitura {
-    private double tFarenheit,tCelsius;
+    private int tFarenheit;
     private LocalDateTime horaLeitura;
     
-    public Leitura(double tFarenheit){
+    public Leitura(int tFarenheit){
         this.tFarenheit=tFarenheit;
         this.horaLeitura=LocalDateTime.now();
-        this.tCelsius=fToCelsius(tFarenheit);
+        
     }
 
     public LocalDateTime getHoraLeitura() {
         return horaLeitura;
     }
 
-    public double gettCelsius() {
-        return tCelsius;
-    }
 
-    public double gettFarenheit() {
+    public int gettFarenheit() {
         return tFarenheit;
     }
 
@@ -40,14 +37,16 @@ public class Leitura {
         this.horaLeitura = horaLeitura;
     }
 
-    private void settCelsius(double tCelsius) {
-        this.tCelsius = tCelsius;
-    }
-    private void settFarenheit(double tFarenheit) {
+  
+    private void settFarenheit(int tFarenheit) {
         this.tFarenheit = tFarenheit;
     }
     
-    private double fToCelsius(double f){
-        return (5/9)*(f-32);
+    public double fToCelsius(){
+        return (this.tFarenheit-32)*(5/9);
+    }
+    
+    public boolean isValid(){
+        return !(this.tFarenheit<41||this.tFarenheit>86);
     }
 }

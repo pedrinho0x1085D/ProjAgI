@@ -5,18 +5,18 @@
  */
 package Behaviours;
 
-import Agents.Coordenador;
+import Agents.Interface;
 import jade.core.behaviours.SequentialBehaviour;
 
 /**
  *
  * @author PedroJosé
  */
-public class SeqInit extends SequentialBehaviour{
-    private Coordenador c;
-    public SeqInit(Coordenador c){
-        super(c);
-        this.addSubBehaviour(new PoeOnline(c));
-        this.addSubBehaviour(new PedeLeiturasBehaviour(c, 10000));
+public class IniciaInterface extends SequentialBehaviour{
+    private Interface i;
+    public IniciaInterface(Interface i){
+        super(i);
+        this.addSubBehaviour(new PedeOnline(i));
+        this.addSubBehaviour(new InterfaceParalelo(i));
     }
 }

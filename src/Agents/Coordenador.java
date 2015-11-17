@@ -6,31 +6,30 @@
 package Agents;
 
 import Behaviours.PoeOnline;
-import Behaviours.SeqInit;
+import Behaviours.RecebePedidosInterface;
+import Business.DataComparator;
+import Business.Leitura;
 import jade.core.AID;
 import jade.core.Agent;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.TreeSet;
 
 /**
  *
  * @author PedroJosé
  */
 public class Coordenador extends Agent {
-    ArrayList<AID> historico,atual;
+    
     @Override
     protected void setup() {
-        this.atual=new ArrayList<>();
-        this.historico=new ArrayList<>();
-        super.setup();
-        this.addBehaviour(new SeqInit(this));
-    }
-    public void setAtual(ArrayList<AID> aid){
-        this.atual=aid;
         
+        super.setup();
+        System.out.println("Coordenador a iniciar..");
+        this.addBehaviour(new RecebePedidosInterface(this));
     }
-    public ArrayList<AID> getAtual(){
-        return atual;
-    }
+    
+    @Override
     protected void takeDown(){
         super.takeDown();
         System.out.println(this.getLocalName()+" a falecer...");

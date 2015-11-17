@@ -139,7 +139,7 @@ public class Sensor extends Agent
             				}
             			}
             			else
-            			{
+            			{   
             				reply.setPerformative(ACLMessage.FAILURE);
             				myAgent.send(reply);
             			}

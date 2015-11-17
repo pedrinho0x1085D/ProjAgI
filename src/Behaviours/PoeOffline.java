@@ -21,17 +21,17 @@ import java.util.logging.Logger;
  *
  * @author PedroJosé
  */
-public class PoeOnline extends OneShotBehaviour {
+public class PoeOffline extends OneShotBehaviour {
 
     private Coordenador c;
     private String escolhido;
 
-    public PoeOnline(Coordenador c) {
+    public PoeOffline(Coordenador c) {
         this.c = c;
         this.escolhido = "";
     }
     
-    public PoeOnline(Coordenador c, String localName){
+    public PoeOffline(Coordenador c, String localName){
         this.c = c;
         this.escolhido = localName;
     }
@@ -51,7 +51,7 @@ public class PoeOnline extends OneShotBehaviour {
             ACLMessage msg = new ACLMessage(ACLMessage.REQUEST);
             ACLMessage resp=null;
             msg.setConversationId("" + System.currentTimeMillis());
-            msg.setContent("online");
+            msg.setContent("offline");
 
             ArrayList<AID> atual = new ArrayList<>();
             try {
@@ -63,7 +63,7 @@ public class PoeOnline extends OneShotBehaviour {
                     }
                     this.c.send(msg);
                     
-                    String answer = "onlineLista:";
+                    String answer = "offlineLista:";
                     for(int i=0; i<result.length; i++){
                         resp=this.c.blockingReceive();
                         if(resp!=null){
@@ -94,7 +94,7 @@ public class PoeOnline extends OneShotBehaviour {
             //ligar um em particular
             ACLMessage msg = new ACLMessage(ACLMessage.REQUEST);
             msg.setConversationId("" + System.currentTimeMillis());
-            msg.setContent("online");
+            msg.setContent("offline");
             AID sensor = new AID();
             sensor.setLocalName(this.escolhido);
             msg.addReceiver(sensor);
@@ -109,7 +109,7 @@ public class PoeOnline extends OneShotBehaviour {
                 iefe.setLocalName("interface");
                 nova.addReceiver(iefe);
                 nova.setConversationId("" + System.currentTimeMillis());
-                nova.setContent("online:"+this.escolhido);
+                nova.setContent("offline:"+this.escolhido);
                 
                 this.c.send(nova);
             }
