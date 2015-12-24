@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="author" content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta charset="UTF-8">
+
+       
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                        //->prependStylesheet($this->basePath() . '/css/style.css')
+                        //->prependStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
+                        //->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
+        
+        <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+        <link id="stylesheet" type="text/css" href="css/styles.css" rel='stylesheet'/>
+		
+        
+
+    </head>
+    <body>
+        <section id="main-body">
+		 <?php //echo $this->content; ?>
+			<div id="logo"><img src="/img/logo.png" /></div>
+           
+			<div id="current-weather">
+				
+				<div class="icon"><img src="" /></div>
+				<div class="weather-text">
+					<span class="temperatura-atual"></span>
+					<span class="location-atual"></span>
+				</div>
+				
+				<div id="weather-pop-up">
+					<div id="tempoAtual">
+						<p>Dados da última leitura</p>
+						<span class="tempAtual"></span>
+						<span class="sumario"></span>
+						<span class="probPrecip"></span>
+						<span class="intensPrecip"></span>
+						<span class="windSpeed"></span>
+						<span class="humidade"></span>
+						<span class="coberturaNuvens"></span>
+					</div>
+					<div id="previsoesHoje">
+						<p>Previsões para hoje</p>
+						<span class="previsaoHoje"></span>
+						<span class="tempMinHoje"></span>
+						<span class="tempMaxHoje"></span>
+						<span class="probPrecipHoje"></span>
+					</div>
+				</div>
+			</div>
+			
+			<div id="warning-button">
+				<img src="/img/no-warning.png"/>
+			</div>
+			<div id="triangulozinho"></div>
+			<ul id="warnings"></ul>
+	
+            <div id="setinha">>></div>
+            <div id="esquerda" class="">
+				
+                <div id="quadro-sensores">
+					
+                </div>
+            </div>
+            <div id="direita" class="">
+				<div id="new_sensor"><button type="button" id="btn_novo">Novo</button></div>
+				<div class="add_sensor">
+					<input type="text" name="novo_sensor" id="novo_sensor"/>
+					<button id="acrescentar-sensor" type="button">go</button>
+				</div>
+				<div id="buttons">
+					<div class="on_off_buttons">
+						<div><button id="btn_ligar" type="button">Ligar</button></div>
+						<div><button id="btn_desligar" type="button">Desligar</button></div>
+					</div>
+					
+					
+				</div>
+                <ul class="lista_sensores"></ul>
+				
+                
+            </div>
+			<div id="individual_page" class="closed">
+				
+				<div id="ind_p_page">
+					<div class="ip_header">
+						<div class="back_button">
+							<div id="go_back" class="show">Voltar</div>
+						</div>
+						<div class="titulo"><span class="tit-status"></span><span class="tittit">Titulo</span></div>
+						<div class="status-ball"><div></div></div>
+					</div>
+					<div class="self_page_body">
+						<div class="spb_chart"></div>
+					</div>
+				</div>
+				
+				
+			</div>
+			<!--
+			<footer>
+				Pedro Cunha, XXXXX & Vasco Monteiro, 51772
+			</footer>
+			-->
+        </section> <!-- /container -->
+        
+        
+        <script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/highcharts.js"></script>
+		<!--<script src="js/themes/dark-unica.js"></script>-->
+		
+		<script src="js/jquery.tempgauge.js"></script>
+		<script src="js/main.js"></script>
+		
+    </body>
+</html>
